@@ -34,3 +34,22 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
+
+apply plugin: 'com.novoda.bintray-release'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def bintrayUserVal = properties.getProperty('bintrayUser')
+def bintrayKeyVal = properties.getProperty('bintrayKey')
+
+publish {
+    userOrg = 'gtfdeyouxiang'  //jcenter的用户名
+    groupId = 'top.gtf35.lib'    //组织id
+    artifactId = 'BouncingFloatingButton'    //libName
+    publishVersion = '1.1'        //libVersion
+    desc = 'a bottom layout with an float can be bounced in it'//lib desc
+    website = 'https://github.com/gtf35/BouncingFloatingButton' //lib的地址
+    bintrayUser = bintrayUserVal //上面task中读取到的jcenterName
+    bintrayKey = bintrayKeyVal //上面task中读取到的apiKey
+    dryRun = false
+}
