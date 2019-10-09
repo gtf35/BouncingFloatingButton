@@ -1,0 +1,2 @@
+include ':app', ':BouncingFloatingViewLayout'
+rootProject.name='BouncingFloatingButton'

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BouncingFloatingViewLayout">
+        <!--主布局ID-->
+        <attr name="main_layout" format="reference"/>
+        <!--浮动按钮ID-->
+        <attr name="float_view" format="reference"/>
+        <!--主布局背景-->
+        <attr name="main_layout_background_color" format="color"/>
+        <!--支持重力传感器，可以摇晃手机来和浮动按钮互动-->
+        <attr name="support_sensor" format="boolean"/>
+        <!--是否启用拖拽-->
+        <attr name="enable_bounce" format="boolean"/>
+    </declare-styleable>
+</resources>

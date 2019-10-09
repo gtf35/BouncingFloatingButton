@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--建议在最外层用 FrameLayout ，将底栏写进 BouncingFloatingViewLayout 盖在主界面的布局上面即可 -->
+<!--BouncingFloatingViewLayout 不会吞空白处的点击事件-->
+
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--这个相当于主界面的布局-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/btn_sensor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="开启重力感应" />
+
+        <Button
+            android:id="@+id/btn_changecolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="换颜色"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_enable_bounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启用拖拽"
+            app:layout_constraintEnd_toStartOf="@+id/btn_changecolor"
+            app:layout_constraintStart_toEndOf="@+id/btn_sensor"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- 这个就是弹跳底栏的布局了-->
+    <!--这个要填充整个布局，也就是要覆盖在别的的上面，因为这个浮动控件可以整个屏幕拖拽-->
+    <!--但是不用担心，这个并不会吞下面控件的点击事件-->
+    <!--内部只能有两个：一个浮动的控件，一个底栏主布局的layout-->
+    <!--把浮动控件的id填入 float_view-->
+    <!--把底栏主布局的layout 的 id 填入 main_layout-->
+    <!--底栏主布局不应该有颜色，BouncingFloatingViewLayout 会自动绘制和 底栏主布局大小一样的背景颜色-->
+    <!--把希望的底栏颜色填入 main_layout_background_color-->
+    <!--enable_bounce 可以控制是否启用拖拽-->
+    <!--support_sensor 可以控制是否支持重力传感器，可以摇晃手机来和浮动按钮互动-->
+    <top.gtf35.BouncingFloatingViewLayout
+        android:id="@+id/float_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:float_view="@id/button"
+        app:main_layout="@id/main"
+        app:main_layout_background_color="@android:color/darker_gray"
+        app:enable_bounce="true"
+        app:support_sensor="false">
+
+        <!--浮动控件，将会被绘制在底栏主布局的顶部的中间-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button"
+            android:scaleType="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:fabCustomSize="50dp"
+            android:src="@drawable/ic_add_24dp" />
+
+
+        <!--底栏主布局，将会被自动绘制在主界面的底部，要指定 layout_height 为具体数值，别的不支持 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginLeft="64dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_home_24dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginRight="64dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_local_florist_24dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </top.gtf35.BouncingFloatingViewLayout>
+
+</FrameLayout>
+
