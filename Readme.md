@@ -24,12 +24,19 @@ dependencies {
 ### api 的使用可参考 demo 的 [MainActivity.kt](https://github.com/gtf35/BouncingFloatingButton/blob/master/app/src/main/java/top/gtf35/bouncingfloatingbutton/MainActivity.kt)
 
 获取浮动按钮ID BouncingFloatingViewLayout.getFloatViewID()
+
 底栏主布局ID BouncingFloatingViewLayout.getMainLayoutID()
+
 获取是否支持重力感应 BouncingFloatingViewLayout.getIsSupportSensor()
+
 设置是否支持重力感应 BouncingFloatingViewLayout.setIsSupportSensor(Boolean)
+
 获取是否启用了拖拽 BouncingFloatingViewLayout.getIsEnableBounce()
+
 设置是否启用了拖拽 BouncingFloatingViewLayout.setIsEnableBounce(Boolean)
+
 更改背景颜色 BouncingFloatingViewLayout.setMainLayoutBackgroundColor(int color)
+
 
 ## 注意
 作为悬浮按钮的 View 在启用拖拽的情况下，将无法接受除了 onClick 之外的任何用户触发
