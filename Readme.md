@@ -20,7 +20,8 @@ dependencies {
 
 ### layout 的使用参考 demo 的 [layout](https://github.com/gtf35/BouncingFloatingButton/blob/master/app/src/main/res/layout/activity_main.xml) 里面有详细的说明
 
-## api 的使用可参考 demo 的 [MainActivity.kt](https://github.com/gtf35/BouncingFloatingButton/blob/master/app/src/main/java/top/gtf35/bouncingfloatingbutton/MainActivity.kt)
+
+### api 的使用可参考 demo 的 [MainActivity.kt](https://github.com/gtf35/BouncingFloatingButton/blob/master/app/src/main/java/top/gtf35/bouncingfloatingbutton/MainActivity.kt)
 
 获取浮动按钮ID BouncingFloatingViewLayout.getFloatViewID()
 底栏主布局ID BouncingFloatingViewLayout.getMainLayoutID()
@@ -30,9 +31,10 @@ dependencies {
 设置是否启用了拖拽 BouncingFloatingViewLayout.setIsEnableBounce(Boolean)
 更改背景颜色 BouncingFloatingViewLayout.setMainLayoutBackgroundColor(int color)
 
-# 注意
+## 注意
 作为悬浮按钮的 View 在启用拖拽的情况下，将无法接受除了 onClick 之外的任何用户触发
 
-# 作者 gtf35
-# 邮箱 gtfdeyouxiang@gmail.com
+## 作者 gtf35
+## 邮箱 gtfdeyouxiang@gmail.com
+
 娱乐的项目，我觉得通用性略下，就当练手了
